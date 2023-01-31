@@ -1,22 +1,22 @@
 <script setup>
-    // defineProps({
-    //     search: {
-    //         type: String,
-    //         required: false
-    //     }
-    // })
+    defineProps({
+        search: {
+            type: String,
+            required: false
+        }
+    })
 </script>
 
 <template>
     <header class="header">
         <a href="#" class="header__identity">
-            <img class="header__identity__logo" src="./assets/img/logo.svg" alt="Imagen del logo">
+            <img class="header__identity__logo" src="../assets/img/logo.svg" alt="Imagen del logo">
             <p class="header__identity__name">VIJU</p>
         </a>        
-        <form class="header__browser">
+        <div class="header__browser">
             <span class="header__browser__icon material-symbols-outlined">search</span>
             <input class="header__browser__input" placeholder="Buscar..." :value="search"/>                                            
-        </form>
+        </div>
         <nav class="header__nav">
             <ul class="header__nav__list">
                 <li class="header__nav__list__item"><a href="#">LOG IN</a></li>
