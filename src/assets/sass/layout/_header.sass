@@ -1,0 +1,105 @@
+.header
+    width: 100%  
+    min-height: $XXXL
+    display: grid
+    grid-template-columns: 1fr 8fr 1fr
+    align-items: center
+    padding: $S $L
+
+    &__identity
+        display: flex
+        flex-direction: row
+        align-items: center
+        gap: $XXS
+
+        &__logo
+            height: $XL
+            width: $XL
+
+        &__name
+            font-size: $XS
+            font-family: $fuente_primaria            
+            font-weight: 900
+            letter-spacing: 5px
+            color: $color_claro
+
+    &__browser
+        height: 60%
+        width: 100%
+        min-width: 280px
+        max-height: $L
+        display: flex
+        justify-content: space-between
+        align-items: center
+        align-self: center
+        gap: $XS
+        background-color: $color_oscuro_terciario
+        border-radius: $S
+
+        &__input
+            height: 100%
+            width: 100%
+            font-size: $XS
+            color: $color_claro            
+            border: none
+            padding-right: $XS
+            outline: none
+            background-color: transparent
+
+            &::placeholder
+                color: $color_placeholder
+
+        &__icon
+            height: 100%
+            max-width: $L
+            min-width: $M
+            display: flex     
+            border-radius: 0 $S $S 0
+            justify-content: end
+            color: $color_placeholder
+
+        &:hover
+            background-color: $color_claro
+
+            .header__browser
+
+                &__input
+                    color: $color_oscuro_primario
+                
+                &__icon
+                    color: $color_oscuro_primario    
+                   
+            
+    &__nav
+        height: 100%
+        width: 100%
+        display: flex
+        flex-direction: row
+        align-content: center
+
+        &__list
+            height: 100%
+            width: 100%
+            display: grid
+            grid-template-columns: 1fr 1fr
+            color: $color_claro
+            list-style: none
+        
+            &__item
+                height: 100%
+                width: 100%
+                display: flex
+                align-items: center
+                justify-content: center
+
+                & a
+                    width: 100%
+                    font-size: $XS
+                    text-align: center
+                    color: $color_claro
+                    font-family: $fuente_secundaria                    
+
+    &__menu
+
+        &--disabled
+            display: none
