@@ -1,24 +1,29 @@
 <script setup>
-  import { RouterView } from 'vue-router'
-  import Header from './components/Header.vue'
-  import Menu from './components/Menu.vue'
+import { RouterView } from 'vue-router'
+import Header from './components/Header.vue'
+import Menu from './components/Menu.vue'
 </script>
 
 <script>
   export default {
-    data () {
+    data() {
       return {
-        search: "",
+        search: ""
       }
     },
+    methods: {
+      handleChange(event){
+        const {value} = event.target
+        this.search = value;
+      }
+    }
   }
 </script>
 
 <template>
-  <Header :search="search" />
-  <p>{{ search }}</p>
+  <Header @inputChange="handleChange" :search="search"/>
   <div class="container-page">
-    <Menu />  
+    <Menu />
     <RouterView />
   </div>
 </template>
