@@ -10,6 +10,5 @@
                 <li class="aside__nav__list__item"><RouterLink to="/nuevos">Nuevos</RouterLink></li>
             </ul>
         </nav>
-    </aside>
-    
+    </aside> 
 </template>

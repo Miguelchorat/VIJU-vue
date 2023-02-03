@@ -1,0 +1,46 @@
+.main
+    padding: $S
+    &__reviews
+        display: grid
+        grid-template-columns: repeat(4,1fr)
+        gap: $XL
+        justify-content: center
+        
+        
+        &__review
+            position: relative
+            background-color: $color_oscuro_secundario
+            max-height: 350px
+            max-width: 420px
+            border-radius: $XXS
+
+            &__img
+                width: 100%
+                height: 45%
+                object-fit: cover
+                object-position: top
+                border-radius: $XXS $XXS 0 0
+
+            &__title
+                font-family: $fuente_primaria
+                font-size: $S
+                color: $color_claro
+                padding: $XS
+
+            &__user
+                position: absolute
+                bottom: 0
+                left: 0
+                color: $color_placeholder
+                padding: $XS
+                font-family: $fuente_secundaria
+                font-size: $XS
+
+            &__score
+                position: absolute
+                bottom: 0
+                right: 0
+                color: #FFF000
+                padding: $XS
+                font-family: $fuente_primaria
+                font-size: $M
