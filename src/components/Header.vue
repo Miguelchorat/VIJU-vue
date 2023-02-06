@@ -1,17 +1,25 @@
+<script setup>
+import { RouterLink } from 'vue-router'
+</script>
+
 <template>
     <header class="header">
-        <a href="#" class="header__identity">
+        <RouterLink to="/" class="header__identity">
             <img class="header__identity__logo" src="../assets/img/logo.svg" alt="Imagen del logo">
             <p class="header__identity__name">VIJU</p>
-        </a>
+        </RouterLink>
         <div class="header__browser">
             <span class="header__browser__icon material-symbols-outlined">search</span>
-            <input class="header__browser__input" placeholder="Buscar..." @input="(e) => this.$emit('inputChange',e)"/>
+            <input class="header__browser__input" placeholder="Buscar..." @input="(e) => this.$emit('listenInput', e)" />
         </div>
         <nav class="header__nav">
             <ul class="header__nav__list">
-                <li class="header__nav__list__item"><a href="#">LOG IN</a></li>
-                <li class="header__nav__list__item"><a href="#">SIGN IN</a></li>
+                <li class="header__nav__list__item">
+                    <a type="button" class="header__nav__list__item__link" href="#"
+                        @click="() => this.$emit('listenMenu')">LOG IN</a>
+                </li>
+                <li class="header__nav__list__item"><a type="button" class="header__nav__list__item__link" href="#">SIGN
+                        IN</a></li>
             </ul>
         </nav>
         <a class="header__menu--disabled" href="#">

@@ -3,45 +3,48 @@
 
 <template>
   <main class="main">
-    <h1 class="main__title">ULTIMAS RESEÑAS</h1>
+    <h1 class="main__title">TENDENCIAS</h1>
     <div class="main__reviews">
-      <a href="#" class="main__reviews__review">        
+      <span href="#" class="main__reviews__review">        
         <img class="main__reviews__review__img" src="../assets/img/placeholder.png" alt=""/>      
         <h2 class="main__reviews__review__title">POKÉMON or Digimon</h2>
         <p class="main__reviews__review__description">Esto es una descripción bastante escueta para ser probado...</p>
-        <p class="main__reviews__review__user">@MiguelChorat</p>
-        <p class="main__reviews__review__score">0/5</p>        
-      </a>
+        <div class="main__reviews__review__info">
+          <p class="main__reviews__review__info__user">@MiguelChorat</p>
+          <p class="main__reviews__review__info__score">3.1</p>        
+        </div>        
+      </span>
 
-      <!-- PRUEBAS -->
-      <span href="#" class="main__reviews__review">
+      <span href="#" class="main__reviews__review">        
         <img class="main__reviews__review__img" src="../assets/img/placeholder.png" alt=""/>      
-        <h2 class="main__reviews__review__title">Jump King is awesome</h2>
+        <h2 class="main__reviews__review__title">POKÉMON or Digimon</h2>
         <p class="main__reviews__review__description">Esto es una descripción bastante escueta para ser probado...</p>
-        <p class="main__reviews__review__user">@User</p>
-        <p class="main__reviews__review__score">0/5</p>        
+        <div class="main__reviews__review__info">
+          <p class="main__reviews__review__info__user">@MiguelChorat</p>
+          <p class="main__reviews__review__info__score">3.1</p>        
+        </div>        
       </span>
-      <span href="#" class="main__reviews__review">
-        <img class="main__reviews__review__img" src="../assets/img/placeholder.png" alt="">
-        <h2 class="main__reviews__review__title">Prueba prueba</h2>
+
+      <span href="#" class="main__reviews__review">        
+        <img class="main__reviews__review__img" src="../assets/img/placeholder.png" alt=""/>      
+        <h2 class="main__reviews__review__title">POKÉMON or Digimon</h2>
         <p class="main__reviews__review__description">Esto es una descripción bastante escueta para ser probado...</p>
-        <p class="main__reviews__review__user">@User</p>
-        <p class="main__reviews__review__score">0/5</p>        
+        <div class="main__reviews__review__info">
+          <p class="main__reviews__review__info__user">@MiguelChorat</p>
+          <p class="main__reviews__review__info__score">3.1</p>        
+        </div>        
       </span>
-      <span href="#" class="main__reviews__review">
-        <img class="main__reviews__review__img" src="../assets/img/placeholder.png" alt="">
-        <h2 class="main__reviews__review__title">Esto es un ejemplo de prueba</h2>
+
+      <span href="#" class="main__reviews__review">        
+        <img class="main__reviews__review__img" src="../assets/img/placeholder.png" alt=""/>      
+        <h2 class="main__reviews__review__title">POKÉMON or Digimon</h2>
         <p class="main__reviews__review__description">Esto es una descripción bastante escueta para ser probado...</p>
-        <p class="main__reviews__review__user">@User</p>
-        <p class="main__reviews__review__score">0/5</p>        
+        <div class="main__reviews__review__info">
+          <p class="main__reviews__review__info__user">@MiguelChorat</p>
+          <p class="main__reviews__review__info__score">3.1</p>        
+        </div>        
       </span>
-      <span href="#" class="main__reviews__review">
-        <img class="main__reviews__review__img" src="../assets/img/placeholder.png" alt="">
-        <h2 class="main__reviews__review__title">Esto es otra prueba</h2>
-        <p class="main__reviews__review__description">Esto es una descripción bastante escueta para ser probado...</p>
-        <p class="main__reviews__review__user">@User</p>
-        <p class="main__reviews__review__score">0/5</p>        
-      </span>
+      
     </div>
   </main>
 </template>

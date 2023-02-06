@@ -1,0 +1,146 @@
+.login
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    margin: auto
+    height: 300px
+    width: 450px
+    display: none
+    flex-direction: column
+    gap: $XXS
+    background-color: $color_oscuro_secundario
+    border-radius: calc($XXS/2)
+    z-index: 999
+    padding: $M
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 12px
+    animation: fade-up none .8s
+
+    &__active
+        display: flex
+
+    &__title
+        font-family: $fuente_primaria
+        font-weight: 900
+        font-size: $M
+        color: $color_claro
+        text-align: center
+
+    &__close
+        position: absolute
+        top: 0
+        right: 0
+        color: $color_claro
+        margin: $XXS
+
+        &:hover
+            color: $color_primario
+
+    &__field
+        position: relative
+
+        &__input
+            height: 100%
+            width: 100%
+            max-height: $L
+            min-height: $M
+            font-size: $XS
+            color: $color_claro
+            padding-left: $XS
+            border: none
+            outline: none
+            background-color: $color_oscuro_terciario
+
+            &__warning
+                border-right: 4px solid $color_warning
+
+        &__icon
+            position: absolute
+            top: 0
+            bottom: 0
+            right: 2%
+            color: $color_claro
+            cursor: pointer
+
+            &:hover
+                opacity: $opacidad
+
+        &__error
+            position: absolute
+            top: 0
+            bottom: 0
+            left: 103%
+            width: 200px
+            background-color: $color_warning
+            color: $color_claro
+            font-family: $fuente_secundaria
+            font-size: $XXS
+            display: none
+            align-items: center
+            padding: 0 8px
+            border-radius: 4px        
+
+            &__active
+                display: flex
+
+        &__square
+            position: absolute
+            top: 0
+            bottom: 0
+            left: 102%
+            margin: auto
+            transform: rotate(45deg)
+            width: $XXS
+            height: $XXS
+            margin-right: 4px
+            background-color: $color_warning
+            z-index: -1
+            display: none            
+
+            &__active
+                display: flex
+
+    &__remember
+        display: flex
+        align-items: center
+
+        &__checkbox
+            height: $XS
+            width: $XS
+
+            &:checked
+                accent-color: $color_primario
+
+        &__label
+            font-family: $fuente_secundaria
+            font-size: $XS
+            color: $color_claro
+            padding-left: 8px
+
+    &__button
+        height: 200px
+        max-height: $L
+        background-color: $color_primario
+        font-family: $fuente_primaria
+        font-weight: 900
+        font-size: $XS
+        color: $color_claro
+        border: none
+        outline: none
+
+    &__signin
+        display: flex
+        flex-direction: row
+        gap: $XXS
+        justify-content: flex-end
+
+        &__label
+            color: $color_claro
+            font-family: $fuente_secundaria
+            font-size: $XS
+
+        &__link
+            color: $color_primario
+            font-family: $fuente_secundaria
+            font-size: $XS

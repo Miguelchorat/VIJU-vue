@@ -1,19 +1,20 @@
 .main
     padding: $L
+
     &__reviews
         display: grid
         grid-template-columns: repeat(4,1fr)
         gap: $XL
-        justify-content: center
-        
         
         &__review
-            position: relative
+            display: flex
+            flex-direction: column
             background-color: $color_oscuro_secundario
-            max-height: 350px
+            max-height: 300px
             max-width: 420px
             border-radius: $XXS
-            overflow: hidden                               
+            overflow: hidden     
+            animation: fade-up none 1.4s                    
                 
             &__img
                 width: 100%
@@ -34,28 +35,30 @@
                 font-family: $fuente_secundaria
                 font-size: $XS
                 color: $color_claro
-                padding: $XS
+                padding: $XS $XS 0 $XS
+                flex-grow: 1
 
-            &__user
-                position: absolute
-                bottom: 0
-                left: 0
-                color: $color_placeholder
-                padding: $XS
-                font-family: $fuente_secundaria
-                font-size: $XS
+            &__info
+                display: flex
+                flex-direction: row
+                justify-content: space-between
+                align-items: flex-end
+                &__user
+                    color: $color_placeholder
+                    padding: $XS
+                    font-family: $fuente_secundaria
+                    font-size: $XS
 
-            &__score
-                position: absolute
-                bottom: 0
-                right: 0
-                color: $color_primario
-                padding: $XS
-                font-family: $fuente_secundaria
-                font-size: $M
+                &__score
+                    color: $color_warning
+                    padding: $XS
+                    font-family: $fuente_secundaria
+                    font-size: $M
 
             &:hover
                 .main__reviews__review
                     transform: scale(1.2)
                     position: absolute
                     z-index: 1
+
+  

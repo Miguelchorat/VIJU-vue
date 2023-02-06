@@ -1,7 +1,5 @@
 .aside
-    color: $color_claro
-    font-size: $M
-    font-family: $fuente_primaria
+    color: $color_claro    
     padding: $L
     min-width: 250px
     
@@ -20,3 +18,14 @@
             gap: $XS
             color: $color_claro
             list-style: none
+
+            &__item
+                
+                &__link
+                    position: relative
+                    color: $color_claro
+                    font-size: $S
+                    font-family: $fuente_primaria
+
+                    &:hover
+                        opacity: $opacidad
