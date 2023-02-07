@@ -4,6 +4,8 @@ export default {
 
     data() {
         return {
+            email: '',
+            password: '',
             errorEmail: false,
             errorPassword: false,
             remember: false,
@@ -16,37 +18,40 @@ export default {
         },
         listenVisibility() {
             this.visibility = !this.visibility
+        },
+        checkFields(){
+            
         }
     }
 }
 </script>
 <template>
-    <form class="login" :class="{ login__active: menu }">
-        <a class="login__close material-symbols-outlined" href="#" @click="() => this.$emit('listenMenu')">close</a>
-        <h2 class="login__title">INICIAR SESIÓN</h2>
-        <div class="login__field">
-            <input class="login__field__input" :class="{ login__field__input__warning: errorEmail }" type="email"
-                placeholder="Email" aria-label="email" required />
-            <span class="login__field__square" :class="{ login__field__square__active: errorEmail }" />
-            <p class="login__field__error" :class="{ login__field__error__active: errorEmail }">El correo no es válido</p>
+    <form class="session" :class="{ session__active: menu==1 }">
+        <a class="session__close material-symbols-outlined" href="#" @click="() => this.$emit('listenMenu', 0)">close</a>
+        <h2 class="session__title">INICIAR SESIÓN</h2>
+        <div class="session__field">
+            <input class="session__field__input" :class="{ session__field__input__warning: errorEmail }" type="email"
+                placeholder="Correo" aria-label="email" :value="email" @input="event => email = event.target.value" required/>
+            <span class="session__field__square" :class="{ session__field__square__active: errorEmail }" />
+            <p class="session__field__error" :class="{ session__field__error__active: errorEmail }">El correo no es válido</p>
         </div>
-        <div class="login__field">
-            <input class="login__field__input" :class="{ login__field__input__warning: errorPassword }" 
-                placeholder="Password" :type="visibility ? 'text' : 'password'" aria-label="password" required maxlength="32"/>
-            <span class="login__field__icon material-symbols-outlined" @click="listenVisibility">{{this.visibility ? 'visibility_off' : 'visibility'}}</span>
-            <span class="login__field__square" :class="{ login__field__square__active: errorPassword }" />
-            <p class="login__field__error" :class="{ login__field__error__active: errorPassword }">La contraseña no es
+        <div class="session__field">
+            <input class="session__field__input" :class="{ session__field__input__warning: errorPassword }" 
+                placeholder="Clave" :type="visibility ? 'text' : 'password'" aria-label="password" required maxlength="20"/>
+            <span class="session__field__icon material-symbols-outlined" @click="listenVisibility">{{this.visibility ? 'visibility_off' : 'visibility'}}</span>
+            <span class="session__field__square" :class="{ session__field__square__active: errorPassword }" />
+            <p class="session__field__error" :class="{ session__field__error__active: errorPassword }">La contraseña no es
                 válida</p>
         </div>
-        <div class='login__remember'>
+        <div class='session__remember'>
             <input type="checkbox" :checked="remember" @click="listenRemember"
-                class="login__remember__checkbox"/>
-            <label class="login__remember__label">Recordarme</label>
+                class="session__remember__checkbox"/>
+            <label class="session__remember__label">Recordarme</label>
         </div>
-        <button class="login__button" type="submit">INICIAR SESIÓN</button>
-        <div class="login__signin">
-            <label class="login__signin__label">¿No tienes cuenta?</label>
-            <a href="#" class="login__signin__link">Create una</a>
+        <button class="session__button" type="submit">INICIAR SESIÓN</button>
+        <div class="session__signin">
+            <label class="session__signin__label">¿No tienes cuenta?</label>
+            <a href="#" class="session__signin__link" @click="() => this.$emit('listenMenu', 2)">Create una</a>
         </div>
     </form>
 </template>

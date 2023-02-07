@@ -3,6 +3,7 @@ import { RouterView } from 'vue-router'
 import Header from './components/Header.vue'
 import Menu from './components/Menu.vue'
 import Login from './components/Login.vue'
+import Signin from './components/Signin.vue'
 
 </script>
 
@@ -11,7 +12,7 @@ export default {
   data() {
     return {
       search: "",
-      menu: false
+      menu: 0
     }
   },
   methods: {
@@ -19,8 +20,8 @@ export default {
       const { value } = event.target
       this.search = value;
     },
-    listenMenu() {
-      this.menu = !this.menu
+    listenMenu(n) {
+      this.menu = n
     }
   }
 }
@@ -33,6 +34,7 @@ export default {
     <RouterView />
   </div>
   <Login @listenMenu="listenMenu" :menu="menu" />
-  <div class="fondo__desplegable" :class="{ fondo__desplegable__active: menu }" @click="listenMenu"></div>
+  <Signin @listenMenu="listenMenu" :menu="menu" />
+  <div class="fondo__desplegable" :class="{ fondo__desplegable__active: menu }" @click="listenMenu(0)"></div>
 </template>
 

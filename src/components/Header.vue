@@ -16,9 +16,10 @@ import { RouterLink } from 'vue-router'
             <ul class="header__nav__list">
                 <li class="header__nav__list__item">
                     <a type="button" class="header__nav__list__item__link" href="#"
-                        @click="() => this.$emit('listenMenu')">LOG IN</a>
+                        @click="() => this.$emit('listenMenu',1)">LOG IN</a>
                 </li>
-                <li class="header__nav__list__item"><a type="button" class="header__nav__list__item__link" href="#">SIGN
+                <li class="header__nav__list__item"><a type="button" class="header__nav__list__item__link" href="#"
+                    @click="() => this.$emit('listenMenu',2)">SIGN
                         IN</a></li>
             </ul>
         </nav>
