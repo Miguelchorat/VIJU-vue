@@ -112,7 +112,7 @@ export default {
             <span class="session__field__square" :class="{ session__field__square__active: errorDate }" />
             <p class="session__field__error" :class="{ session__field__error__active: errorDate }">La fecha no es válida</p>
         </div>
-        <button class="session__button" type="button" @click="checkFields">REGISTRARSE</button>
+        <input class="session__button" type="button" @click="checkFields" value="REGISTRARSE">
         <div class="session__signin">
             <label class="session__signin__label">¿Ya tienes una cuenta?</label>
             <a href="#" class="session__signin__link" @click="() => this.$emit('listenMenu', 1)">Iniciar sesión</a>

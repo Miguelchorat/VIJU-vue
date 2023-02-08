@@ -69,7 +69,7 @@ export default {
                 class="session__remember__checkbox"/>
             <label class="session__remember__label">Recordarme</label>
         </div>
-        <button class="session__button" type="button" @click="checkFields">INICIAR SESIÓN</button>
+        <input class="session__button" type="button" @click="checkFields" value="INICIAR SESIÓN">
         <div class="session__signin">
             <label class="session__signin__label">¿No tienes cuenta?</label>
             <a href="#" class="session__signin__link" @click="() => this.$emit('listenMenu', 2)">Create una</a>
