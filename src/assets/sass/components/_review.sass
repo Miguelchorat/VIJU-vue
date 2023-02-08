@@ -5,7 +5,8 @@
         display: grid
         grid-template-columns: repeat(4,1fr)
         gap: $XL
-        
+        max-width: 1800px
+
         &__review
             display: flex
             flex-direction: column
@@ -13,17 +14,16 @@
             max-height: 300px
             max-width: 420px
             border-radius: $XXS
-            overflow: hidden     
-            animation: fade-up none 1.4s                    
-                
+            overflow: hidden
+            animation: fade-up none 1.4s
+
             &__img
                 width: 100%
-                height: 45%                
+                height: 45%
                 object-fit: cover
                 object-position: top
-                transition: 0.5s all    
-                -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))            
-                
+                transition: 0.5s all
+                -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))
 
             &__title
                 font-family: $fuente_primaria
@@ -42,7 +42,7 @@
                 display: flex
                 flex-direction: row
                 justify-content: space-between
-                align-items: flex-end                                
+                align-items: flex-end
 
                 &__user
                     color: $color_placeholder
@@ -52,16 +52,12 @@
                     align-self: flex-end
 
                 &__score
-                    text-align: end                                        
+                    text-align: end
                     color: $color_primario
                     font-family: $fuente_secundaria
                     font-size: $S
-                    padding: $XXS                    
+                    padding: $XXS
 
-            &:hover
-                .main__reviews__review
-                    transform: scale(1.2)
-                    position: absolute
-                    z-index: 1
-
-  
+            &:hover                
+                transform: scale(1.05)
+                

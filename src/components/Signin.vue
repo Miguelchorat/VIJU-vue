@@ -68,8 +68,9 @@ export default {
                 this.errorDate = true
             }
 
-            if(check == 5)
-                alert("Validación completa")
+            if(check == 5){
+                this.$emit('listenMenu', 1)
+            }
         }
     }
 }

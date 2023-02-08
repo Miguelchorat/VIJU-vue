@@ -1,6 +1,6 @@
 <script>
 export default {
-    props: ['menu'],
+    props: ['menu','account'],
 
     data() {
         return {
@@ -38,8 +38,10 @@ export default {
                 this.errorPassword = true
             }
 
-            if(check == 2)
-                alert("Validación completa")
+            if(check == 2){
+                this.$emit('listenAccount')
+                this.$emit('listenMenu', 0)
+            }
         }
     }
 }

@@ -4,7 +4,7 @@
     display: flex
     flex-direction: row    
     align-items: center
-    padding: $S 0
+    padding-right: $L
 
     &__identity
         display: flex
@@ -19,29 +19,26 @@
             width: $XL
 
         &__name
-            font-size: $M
+            font-size: $S
             font-family: $fuente_primaria
             font-weight: 900
             letter-spacing: $XXS            
             color: $color_claro
 
     &__browser        
-        height: $L
-        width: $XXL
-        min-width: 1460px
+        height: $L       
         min-height: $L        
-        display: flex
-        justify-content: space-between
-        align-items: center
+        display: flex                
         align-self: center
         gap: $XS
         position: relative
-        padding-left: $M
+        padding: 0 $M
+        flex-grow: 1
 
         &__icon
             position: absolute
             top: 0
-            right: 10px
+            left: $M
             height: 100%
             max-width: $L
             min-width: $M
@@ -54,9 +51,10 @@
             border-radius: $S
             height: 100%
             width: 100%
+            max-width: 1396px
             font-size: $XS
             color: $color_claro
-            padding-left: $XS
+            padding-left: $L
             border: none
             outline: none
             background-color: $color_oscuro_terciario
@@ -81,17 +79,16 @@
     &__nav
         height: 100%
         width: 100%
+        max-width: 200px
         display: flex
         flex-direction: row
         align-content: center
-        padding: 0 $M
 
         &__list
             height: 100%
             width: 100%
-            display: grid
-            grid-template-columns: 1fr 1fr
-            gap: $XXS
+            display: flex
+            flex-direction: row
             color: $color_claro
             list-style: none
 
@@ -125,10 +122,75 @@
                     &:hover::before
                         transform: scaleX(1)
 
-    &__menu
+    &__account
+        height: $XXL
+        width: 100%
+        max-width: 200px
+        display: flex
+        flex-direction: row
+        color: $color_claro
+        font-family: $fuente_primaria
+        font-size: $S
+        align-items: center
+        justify-content: center
 
-        &--disabled
-            display: none
+        &:hover
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(255, 255, 255, 0.08) 0px 0px 0px 1px
+
+    &__menu
+        position: absolute
+        top: $XXXL
+        right: $L
+        background-color: $color_oscuro_secundario
+        border-radius: 2px
+        box-shadow: rgba(255, 255, 255, 0.08) 0px 0px 0px 1px
+        height: 10%
+        width: 100%
+        max-width: 200px
+        min-height: 100px
+        display: flex
+        flex-direction: row
+        z-index: 99
+
+        &__list
+            height: 100%
+            width: 100%
+            display: flex
+            flex-direction: column
+            gap: $XXS
+            color: $color_claro
+            list-style: none
+            padding: $XXS
+
+            &__item
+                height: 100%
+                width: 100%
+                display: flex
+                align-items: center
+                justify-content: center
+                font-family: $fuente_secundaria
+                font-size: $XS
+                cursor: pointer
+
+                &:hover
+                    color: $color_primario
+        
+        &__square
+            position: absolute
+            top: 0          
+            left: 0
+            right: 0
+            margin: auto
+            transform: rotate(45deg)
+            width: $XXL
+            height: $XXL
+            background-color: $color_oscuro_secundario
+            z-index: -1
+
+    // &__menu
+
+    //     &--disabled
+    //         display: none
 
 .fondo__desplegable
     position: fixed
