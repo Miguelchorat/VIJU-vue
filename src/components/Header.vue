@@ -45,7 +45,7 @@ export default {
             <nav class="header__menu" v-if="this.submenu">
                 <ul class="header__menu__list">
                     <li class="header__menu__list__item"><RouterLink to="/perfil">PERFIL</RouterLink></li>
-                    <li class="header__menu__list__item"><RouterLink to="/crear-reseña">CREAR REVIEW</RouterLink></li>
+                    <li class="header__menu__list__item"><RouterLink to="/crear-review">CREAR REVIEW</RouterLink></li>
                     <li class="header__menu__list__item" @click="() => this.$emit('listenAccount')">CERRAR SESIÓN</li>
                 </ul>
                 <span class="header__menu__square" />

@@ -1,10 +1,9 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import Header from './components/Header.vue'
-import Menu from './components/Menu.vue'
+import Aside from './components/Aside.vue'
 import Login from './components/Login.vue'
 import Signin from './components/Signin.vue'
-
 </script>
 
 <script>
@@ -34,11 +33,11 @@ export default {
 <template>
   <Header @listenInput="listenInput" :search="search" @listenMenu="listenMenu" :menu="menu" :account="account" @listenAccount="listenAccount" />
   <div class="container-page">
-    <Menu />
+    <Aside />
     <RouterView />
   </div>
   <Login @listenMenu="listenMenu" :menu="menu" :account="account" @listenAccount="listenAccount"/>
   <Signin @listenMenu="listenMenu" :menu="menu" />
-  <div class="fondo__desplegable" :class="{ fondo__desplegable__active: menu }" @click="listenMenu(0)"></div>
+  <div class="popup__bg" :class="{ popup__bg__active: menu }" @click="listenMenu(0)"></div>
 </template>
 
