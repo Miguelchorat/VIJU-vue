@@ -10,11 +10,10 @@ import Signin from './components/Signin.vue'
 export default {
   data() {
     return {
+      review: sessionStorage.getItem("review"),
       search: "",
       menu: 0,
-      account: false,
-      results: null,
-      API: "http://127.0.0.1:3001/api/v1/reviews"
+      account: false
     }
   },
   methods: {
@@ -28,10 +27,9 @@ export default {
     listenAccount() {
       this.account = !this.account
     },
-    async callAPI(){
-      const response = await fetch(this.API)
-      const data = await response.json()
-      this.results = data
+    selectReview(n){
+      sessionStorage.setItem("review",n)
+      this.review = n
     }
   }
 }
@@ -41,7 +39,7 @@ export default {
   <Header @listenInput="listenInput" :search="search" @listenMenu="listenMenu" :menu="menu" :account="account" @listenAccount="listenAccount" />
   <div class="container-page">
     <Aside />
-    <RouterView :results="this.results"/>
+    <RouterView :search="this.search" :review="review" @selectReview="selectReview"/>
   </div>
   <Login @listenMenu="listenMenu" :menu="menu" :account="account" @listenAccount="listenAccount"/>
   <Signin @listenMenu="listenMenu" :menu="menu" />

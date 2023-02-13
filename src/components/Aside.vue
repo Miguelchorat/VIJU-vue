@@ -8,34 +8,31 @@ import { RouterLink } from 'vue-router'
             <h2 v-if="!$route.path.includes('/perfil')" class="aside__nav__title">TEMAS</h2>
             <ul v-if="!$route.path.includes('/perfil')" class="aside__nav__list">
                 <li class="aside__nav__list__item">                    
-                    <RouterLink class="aside__nav__list__item__link" to="/">
+                    <RouterLink class="aside__nav__list__item__link" to="/" active-class="aside__nav__list__item__link__active">
                         <span class="aside__nav__list__item__icon material-symbols-outlined">home</span>
                         INICIO
                     </RouterLink>
                 </li>
-                <li class="aside__nav__list__item">
-                    <RouterLink class="aside__nav__list__item__link" to="/perfil">PERFIL</RouterLink>
-                </li>
                 <li class="aside__nav__list__item">                    
-                    <RouterLink class="aside__nav__list__item__link" to="/crear-review">
+                    <RouterLink class="aside__nav__list__item__link" to="/crear-review" active-class="aside__nav__list__item__link__active"> 
                         <span class="aside__nav__list__item__icon material-symbols-outlined">reviews</span>
                         CREAR REVIEW
                     </RouterLink>
                 </li>
                 <li class="aside__nav__list__item">
-                    <RouterLink class="aside__nav__list__item__link" to="/review">REVIEW</RouterLink>
-                </li>
+                    <RouterLink class="aside__nav__list__item__link" to="/perfil" active-class="aside__nav__list__item__link__active">PERFIL</RouterLink>
+                </li>   
             </ul>
             <h2 v-if="$route.path.includes('/perfil')" class="aside__nav__title">MI CUENTA</h2>
             <ul v-if="$route.path.includes('/perfil')" class="aside__nav__list">
                 <li class="aside__nav__list__item">                    
-                    <RouterLink class="aside__nav__list__item__link" to="/perfil">
+                    <RouterLink class="aside__nav__list__item__link" to="/perfil" active-class="aside__nav__list__item__link__active">
                         <span class="aside__nav__list__item__icon material-symbols-outlined">person</span>
                         PERFIL
                     </RouterLink>
                 </li>
                 <li class="aside__nav__list__item">                    
-                    <RouterLink class="aside__nav__list__item__link" to="/perfil/reviews">
+                    <RouterLink class="aside__nav__list__item__link" to="/perfil/reviews" active-class="aside__nav__list__item__link__active">
                         <span class="aside__nav__list__item__icon material-symbols-outlined">reviews</span>
                         RESEÑAS
                     </RouterLink>

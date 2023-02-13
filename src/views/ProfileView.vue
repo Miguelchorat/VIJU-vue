@@ -19,17 +19,17 @@ export default {
 
 <template>
     <main class="main">    
-        <header className="main__header">
-            <h2 className="main__header__title">MI CUENTA</h2>
+        <header class="main__header">
+            <h2 class="main__header__title">MI CUENTA</h2>
         </header>
-        <section className="main__profile">
-            <h3 className="main__profile__title">NOMBRE DE USUARIO</h3>
-            <p className="main__profile__text">Sleykun</p>
-            <h3 className="main__profile__title">CORREO</h3> 
-            <p className="main__profile__text">PLACEHOLDER@correo.com</p>
-            <h3 className="main__profile__title">FECHA DE NACIMIENTO</h3>
-            <p className="main__profile__text">01/01/1970</p>  
-            <input type='button' className="main__profile__button" value="MODIFICAR" @click="listenMenu"/>
+        <section class="main__profile">
+            <h3 class="main__profile__title">NOMBRE DE USUARIO</h3>
+            <p class="main__profile__text">Sleykun</p>
+            <h3 class="main__profile__title">CORREO</h3> 
+            <p class="main__profile__text">PLACEHOLDER@correo.com</p>
+            <h3 class="main__profile__title">FECHA DE NACIMIENTO</h3>
+            <p class="main__profile__text">01/01/1970</p>  
+            <input type='button' class="main__profile__button" value="MODIFICAR" @click="listenMenu"/>
         </section>            
     </main>       
 

@@ -1,5 +1,26 @@
-.main
-    padding: $L
+.main         
+
+    &__title
+        color: $color_claro    
+        font-size: $XXL
+        font-family: $fuente_primaria
+
+    &__empty
+        display: flex
+        flex-direction: column
+        max-width: 1800px
+        padding: $XXL
+        justify-content: center
+        align-items: center
+        gap: $XL
+
+        &__image
+            height: auto
+            width: $XXXL
+        &__title
+            font-family: $fuente_primaria
+            font-size: $M
+            color: $color_claro
 
     &__reviews
         display: grid
@@ -57,6 +78,13 @@
                     font-family: $fuente_secundaria
                     font-size: $S
                     padding: $XXS
+
+                    &__red
+                        color: red
+                    &__yellow
+                        color: yellow
+                    &__green
+                        color: green
 
             &:hover                
                 transform: scale(1.05)
