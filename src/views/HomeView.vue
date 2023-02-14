@@ -34,7 +34,7 @@ export default {
 </script>
 
 <template>
-  <main class="main">
+  <main class="main">    
     <h1 class="main__title">NUEVAS RESEÑAS</h1>
     <section class="main__reviews" v-if="this.results!=null && this.results.length !== 0">
       <Review v-for="res in this.results" :title='res.title' :image='res.image'
