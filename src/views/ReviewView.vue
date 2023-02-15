@@ -29,7 +29,7 @@ export default {
                 <div className="main__header__background__opacity" />
             </div>            
             <p class="main__header__score" :class="results.score < 2.5 ? 'main__header__score__red' : (results.score >= 2.5 && results.score < 3.5) ? 'main__header__score__yellow' : 'main__header__score__green'">{{results.score}}</p>
-            <p class="main__header__date">Creado por @Sleykun el {{results.created_at}}</p>
+            <p class="main__header__date">Creado por {{results.username}} el {{results.created_at}}</p>
         </header>
         <section class="main__review">
             <h3 class="main__review__title">{{results.title}}</h3>

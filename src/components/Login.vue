@@ -48,7 +48,7 @@ export default {
 </script>
 <template>
     <form class="session" :class="{ session__active: menu==1 }">
-        <a class="session__close material-symbols-outlined" href="#" @click="() => this.$emit('listenMenu', 0)">close</a>
+        <a class="session__close material-symbols-outlined" href="#" @click="() => this.$emit('listenMenu')">close</a>
         <h2 class="session__title">INICIAR SESIÓN</h2>
         <div class="session__field">
             <input class="session__field__input" :class="{ session__field__input__warning: errorEmail }" type="email"

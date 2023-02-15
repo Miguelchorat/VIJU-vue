@@ -2,12 +2,19 @@
 import { RouterLink } from 'vue-router';
 
 export default {
-    props: ["title", "image", "description", "user", "score"]
+    props: ["id","title", "image", "description", "user", "score"],
+    
+    data() {
+        return{
+            path: "/review/"+this.id
+        }
+    }
+
 }
 </script>
 
 <template>
-    <RouterLink href="#" class="main__reviews__review" to="/review">
+    <RouterLink href="#" class="main__reviews__review" :to="path">
         <img class="main__reviews__review__img" :src="this.image" alt="" />
         <h2 class="main__reviews__review__title">{{ this.title }}</h2>
         <p class="main__reviews__review__description">{{ this.description }}</p>

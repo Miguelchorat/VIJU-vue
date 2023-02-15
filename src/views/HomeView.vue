@@ -37,9 +37,20 @@ export default {
   <main class="main">    
     <h1 class="main__title">NUEVAS RESEÑAS</h1>
     <section class="main__reviews" v-if="this.results!=null && this.results.length !== 0">
-      <Review v-for="res in this.results" :title='res.title' :image='res.image'
+      <Review v-for="res in this.results" :id='res.id' :title='res.title' :image='res.image'
         :description='res.message.substring(0,MAX_LENGHT)+" ..."'
-        :user='"Sleykun"' :score='res.score' @click="() => this.$emit('selectReview',res.id)"/>
+        :user='res.username' :score='res.score' @click="() => this.$emit('selectReview',res.id)"/>
+
+        <Review v-for="res in this.results" :title='res.title' :image='res.image'
+        :description='res.message.substring(0,MAX_LENGHT)+" ..."'
+        :user='res.username' :score='res.score' @click="() => this.$emit('selectReview',res.id)"/>
+        <Review v-for="res in this.results" :title='res.title' :image='res.image'
+        :description='res.message.substring(0,MAX_LENGHT)+" ..."'
+        :user='res.username' :score='res.score' @click="() => this.$emit('selectReview',res.id)"/>
+        <Review v-for="res in this.results" :title='res.title' :image='res.image'
+        :description='res.message.substring(0,MAX_LENGHT)+" ..."'
+        :user='res.username' :score='res.score' @click="() => this.$emit('selectReview',res.id)"/>
+
     </section>
     <section v-else class="main__empty">
         <img src="/src/assets/img/broken.png" alt="CD ROTO" class="main__empty__image">
