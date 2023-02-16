@@ -10,7 +10,6 @@ import Signin from './components/Signin.vue'
 export default {
   data() {
     return {
-      review: sessionStorage.getItem("review"),
       search: "",
       menu: 0,
       account: false,
@@ -31,10 +30,6 @@ export default {
     },
     listenAccount() {
       this.account = !this.account
-    },
-    selectReview(n) {
-      sessionStorage.setItem("review", n)
-      this.review = n
     },
     async callAPI() {
       try {
@@ -58,11 +53,10 @@ export default {
     :account="account" @listenAccount="listenAccount" />  
   <div v-if="loading" class="container-page">
     <Aside />
-    <RouterView :search="this.search" :review="review" @selectReview="selectReview" />
+    <RouterView :search="this.search" />
   </div>
   <div v-else class="loading">
     <img class="loading__logo" src="/src/assets/img/logo.svg" alt="Imagen del logo" />
-    <div class="loading__effect"><div></div><div></div></div>
     <p class="loading__text">Se está conectando con el servidor</p>
   </div>
   <Login @listenMenu="listenMenu" :menu="menu" :account="account" @listenAccount="listenAccount" v-if="menu == 1" />

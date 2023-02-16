@@ -1,8 +1,28 @@
 .main
+    
+    &__background
+        position: absolute
+        top: 0
+        right: 0                     
+        height: 100%
+        width: 100%
+        -webkit-mask-image: -webkit-gradient(linear, right top, left top, from(rgba(0,0,0,0.3)), to(rgba(0,0,0,0)))
+
+        &__img
+            height: 100%
+            width: 100%
+            position: absolute
+            top: 0
+            right: 0
+            bottom: 0     
+            object-fit: cover
+            object-position: center
+            z-index: -1
 
     &__form
+        width: 50%
         display: flex
-        flex-direction: column
+        flex-direction: column        
         gap: $XS
 
         &__field
@@ -40,7 +60,7 @@
             &__textarea
                 height: 100%
                 width: 100%
-                min-height: 300px
+                min-height: 450px
                 font-family: $fuente_secundaria
                 font-size: $XS
                 color: $color_claro
@@ -104,12 +124,11 @@
             cursor: pointer
 
             &:hover
-                background-color: $color_primario-hover
-        
+                background-color: $color_primario-hover        
     
         &__group
             display: grid
-            grid-template-columns: 5fr 2fr 1fr
+            grid-template-columns: 6fr 4fr 1fr
             justify-content: space-between
             gap: $XS
             

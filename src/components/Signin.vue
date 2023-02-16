@@ -59,7 +59,6 @@ export default {
                 }
             })
                 .then(response => {
-                    console.log(response.data.success)
                     if (response.data.success) {
                         this.$emit('listenMenu', 1)
                     }

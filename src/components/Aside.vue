@@ -18,10 +18,7 @@ import { RouterLink } from 'vue-router'
                         <span class="aside__nav__list__item__icon material-symbols-outlined">reviews</span>
                         CREAR REVIEW
                     </RouterLink>
-                </li>
-                <li class="aside__nav__list__item">
-                    <RouterLink class="aside__nav__list__item__link" to="/perfil" active-class="aside__nav__list__item__link__active">PERFIL</RouterLink>
-                </li>   
+                </li>  
             </ul>
             <h2 v-if="$route.path.includes('/perfil')" class="aside__nav__title">MI CUENTA</h2>
             <ul v-if="$route.path.includes('/perfil')" class="aside__nav__list">
