@@ -27,7 +27,7 @@ export default {
             API_REGISTER: "http://127.0.0.1:3001/api/v1/users/",
             emailValidation: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
             passwordValidation: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,32}$/,
-            usernameValidation: /^[a-zA-Z]{3,18}$/,
+            usernameValidation: /^[a-zA-Z\d]{3,18}$/,
             MIN_AGE_LIMIT: new Date(Date.now()).getFullYear() - 13,
             MAX_AGE_LIMIT: new Date(Date.now()).getFullYear() + 120
         }

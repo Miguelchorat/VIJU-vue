@@ -46,14 +46,10 @@ export default {
                 <ul class="header__menu__list">
                     <li class="header__menu__list__item"><RouterLink to="/perfil">PERFIL</RouterLink></li>
                     <li class="header__menu__list__item"><RouterLink to="/crear-review">CREAR REVIEW</RouterLink></li>
-                    <li class="header__menu__list__item" @click="() => this.$emit('listenAccount')">CERRAR SESIÓN</li>
+                    <li class="header__menu__list__item" @click="() => this.$emit('closeSession')">CERRAR SESIÓN</li>
                 </ul>
                 <span class="header__menu__square" />
             </nav>
         </a>
-        
-        <!-- <a class="header__menu--disabled" href="#">
-            <span class="header__menu__icon material-symbols-outlined">menu</span>
-        </a> -->
     </header>
 </template>

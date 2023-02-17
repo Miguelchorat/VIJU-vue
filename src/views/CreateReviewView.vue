@@ -70,10 +70,11 @@ export default {
 
 <template>
     <main class="main">
-        <h1 class="main__title">CREAR RESEÑA</h1>
-        <div class="main__background">
+        <h1 class="main__title">CREAR RESEÑA</h1>        
+        <!-- <div class="main__background">
             <img className="main__background__img" src="/src/assets/img/background.png" />
-        </div>
+            <div className="main__background__opacity" />
+        </div> -->
         <form class="main__form" @submit.prevent="callApi">
             <div class="main__form__group">
                 <div class="main__form__field">
@@ -107,6 +108,6 @@ export default {
                 <p class="main__form__field__error">El título no es válido</p>
             </div>
             <input class="main__form__button" type="submit" value="CREAR RESEÑA">
-        </form>
+        </form>        
     </main>
 </template>

@@ -9,7 +9,7 @@ export default {
     return {
       MAX_LENGHT: 85,
       results: null,
-      API: "http://127.0.0.1:3001/api/v1/auth/reviews",
+      API: "http://127.0.0.1:3001/api/v1/reviews",
       API_SEARCH: "http://127.0.0.1:3001/api/v1/reviews/search=" + this.search
     }
   },
