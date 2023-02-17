@@ -28,11 +28,12 @@
             z-index: 0
 
     &__form
-        width: 55%
+        width: 65%
         display: flex
         flex-direction: column
         gap: $XS
         z-index: 1
+        min-width: 720px
 
         &__field
             position: relative
@@ -52,7 +53,7 @@
                 border-radius: 25x
 
                 &__warning
-                    border-right: 8px solid $color_warning
+                    border-right: 4px solid $color_warning
 
             &__select
                 height: 100%
@@ -66,6 +67,9 @@
                 border: none
                 outline: none
                 background-color: $color_oscuro_terciario
+
+                &__warning
+                    border-right: 4px solid $color_warning
 
             &__textarea
                 height: 100%
@@ -81,13 +85,16 @@
                 background-color: $color_oscuro_terciario
                 resize: none
 
+                &__warning
+                    border: 1px solid $color_warning
+
             &__error
                 position: absolute
                 top: 150%
                 bottom: 0
-                left: 2%
+                left: 0
                 height: 35px
-                width: 200px
+                width: 250px
                 background-color: $color_warning
                 color: $color_claro
                 font-family: $fuente_secundaria
@@ -98,14 +105,33 @@
                 border-radius: 4px
                 z-index: 10
 
+                &__textarea
+                    position: absolute
+                    top: 20%
+                    bottom: 0
+                    left: 102%
+                    height: 35px
+                    width: 250px
+                    background-color: $color_warning
+                    color: $color_claro
+                    font-family: $fuente_secundaria
+                    font-size: $XXS
+                    display: none
+                    align-items: center
+                    padding: 0 8px
+                    border-radius: 4px
+                    z-index: 10
+
+                    &__active
+                        display: flex
+
                 &__active
                     display: flex
 
             &__square
                 position: absolute
-                top: 150%
-                bottom: 0
-                left: 3%
+                top: 135%
+                left: 20px
                 margin: auto
                 transform: rotate(45deg)
                 width: $XXS
@@ -114,6 +140,22 @@
                 background-color: $color_warning
                 z-index: 9
                 display: none
+
+                &__textarea
+                    position: absolute
+                    top: 22%                    
+                    left: 101%
+                    margin: auto
+                    transform: rotate(45deg)
+                    width: $XXS
+                    height: $XXS
+                    margin-left: 4px
+                    background-color: $color_warning
+                    z-index: 9
+                    display: none
+
+                    &__active
+                        display: flex
 
                 &__active
                     display: flex
@@ -138,7 +180,7 @@
 
         &__group
             display: grid
-            grid-template-columns: 6fr 4fr 1fr
+            grid-template-columns: 6fr 1fr 4fr
             justify-content: space-between
             gap: $XS
 

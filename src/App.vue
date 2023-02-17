@@ -79,6 +79,10 @@ export default {
         }
       }
     }
+  },
+  beforeRouteLeave(to, from, next) {
+    this.closeSession()
+    next();
   }
 }
 </script>
@@ -88,7 +92,7 @@ export default {
     :account="account" @closeSession="closeSession" />
   <div v-if="loading" class="container-page">
     <Aside />
-    <RouterView :search="this.search" />
+    <RouterView :search="this.search" :userId="this.userId"/>
   </div>
   <div v-else class="loading">
     <img class="loading__logo" src="/src/assets/img/logo.svg" alt="Imagen del logo" />

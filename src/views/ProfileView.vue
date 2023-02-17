@@ -1,18 +1,21 @@
 <script setup>
 import UpdateAccount from '../components/UpdateAccount.vue'
+import axios from 'axios'
 </script>
 
 <script>
 export default {
   data() {
     return {
-      menu: false      
+      menu: false,
+            
     }
   },
   methods: {
     listenMenu() {
       this.menu = !this.menu
-    }
+    },
+
   }
 }
 </script>
@@ -33,6 +36,6 @@ export default {
         </section>            
     </main>       
 
-    <UpdateAccount @listenMenu="listenMenu" :menu="menu" />
+    <UpdateAccount @listenMenu="listenMenu" :menu="menu" v-if="menu==1" />
     <div class="popup__bg" :class="{ popup__bg__active: menu }" @click="listenMenu"></div>
 </template>

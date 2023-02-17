@@ -151,10 +151,10 @@
         background-color: $color_oscuro_secundario
         border-radius: 2px
         box-shadow: rgba(255, 255, 255, 0.08) 0px 0px 0px 1px
-        height: 10%
+        height: 25%
         width: 100%
         max-width: 200px
-        min-height: 100px
+        min-height: 120px
         display: flex
         flex-direction: row
         z-index: 99
@@ -164,12 +164,11 @@
             width: 100%
             display: flex
             flex-direction: column
-            gap: $XXS
-            color: $color_claro
+            justify-content: space-around
             list-style: none
             padding: $XXS
 
-            &__item
+            &__item > a
                 height: 100%
                 width: 100%
                 display: flex
@@ -178,6 +177,7 @@
                 font-family: $fuente_secundaria
                 font-size: $XS
                 cursor: pointer
+                color: $color_claro
 
                 &:hover
                     color: $color_primario
@@ -193,11 +193,6 @@
             height: $XXL
             background-color: $color_oscuro_secundario
             z-index: -1
-
-    // &__menu
-
-    //     &--disabled
-    //         display: none
 
 .popup__bg
     position: fixed

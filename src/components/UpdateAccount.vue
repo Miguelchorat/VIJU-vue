@@ -77,7 +77,7 @@ export default {
 </script>
 
 <template>
-    <form class="session session--signin" :class="{ session__active: menu }">
+    <form class="session session--update" :class="{ session__active: menu }">
         <a class="session__close material-symbols-outlined" href="#" @click="() => this.$emit('listenMenu')">close</a>
         <h2 class="session__title">MODIFICAR</h2>
         <div class="session__field">
@@ -113,9 +113,5 @@ export default {
             <p class="session__field__error" :class="{ session__field__error__active: errorDate }">La fecha no es válida</p>
         </div>
         <input class="session__button" type="button" @click="checkFields" value="MODIFICAR">
-        <div class="session__signin">
-            <label class="session__signin__label">¿Quieres eliminar la cuenta?</label>
-            <a href="#" class="session__signin__link" @click="() => this.$emit('listenMenu')">Eliminar</a>
-        </div>
     </form>
 </template>
