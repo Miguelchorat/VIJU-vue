@@ -1,8 +1,29 @@
 <script>
 import axios from 'axios'
 
+/**
+ * Componente para crear una reseña.
+ * @vue-prop {string} title - Título de la reseña.
+ * @vue-prop {string} message - Mensaje de la reseña.
+ * @vue-prop {string} score - Puntuación de la reseña.
+ * @vue-prop {string} videogame - Nombre del videojuego relacionado con la reseña.
+ * @vue-prop {Array<Game>} games - Lista de juegos para seleccionar.
+ * @vue-prop {string} API_GAMES - URL de la API para obtener la lista de juegos.
+ * @vue-prop {string} API_CREATE_REVIEW - URL de la API para crear una reseña.
+ * @vue-data {string} errorTitle - Mensaje de error para el título de la reseña.
+ * @vue-data {string} errorMessage - Mensaje de error para el cuerpo de la reseña.
+ * @vue-data {string} errorScore - Mensaje de error para la puntuación de la reseña.
+ * @vue-data {string} errorVideogame - Mensaje de error para el videojuego de la reseña.
+ * @vue-data {boolean} focusTitle - Indica si el input del título tiene el foco.
+ * @vue-data {boolean} focusMessage - Indica si el input del cuerpo de la reseña tiene el foco.
+ * @vue-data {boolean} focusScore - Indica si el input de la puntuación de la reseña tiene el foco.
+ * @vue-data {boolean} focusVideogame - Indica si el input del videojuego tiene el foco.
+ * @vue-data {RegExp} scoreValidation - Expresión regular para validar la puntuación.
+ * @vue-event callApiGames - Pide al servidor que le devuelva todos los videojuegos por su nombre
+ * @vue-event createReview - Crea una review con los datos proporcionados y lo envia al servidor
+ * @vue-event checkFields - Valida los campos del formulario y registra la reseña si son correctos
+ */
 export default {
-    props: ['userId'],
     data() {
         return {
             title: '',
@@ -18,8 +39,8 @@ export default {
             focusScore: false,
             focusVideogame: false,
             games: null,
-            API_GAMES: "http://localhost:3001/api/v1/games",
-            API_CREATE_REVIEW: "http://127.0.0.1:3001/api/v1/auth/reviews",
+            API_GAMES: "https://viju-server.onrender.com/api/v1/games",
+            API_CREATE_REVIEW: "https://viju-server.onrender.com/api/v1/auth/reviews",
             scoreValidation: /^(?:[0-5](?:\.[0-9])?|\.[0-9])$/,
         }
     },
@@ -30,15 +51,16 @@ export default {
             this.games = data
         },
         async createReview() {
+            let userId = localStorage.getItem('userId')
             const response = await axios.post(this.API_CREATE_REVIEW, {
                 title: this.title,
                 message: this.message,
                 videogame: this.videogame,
                 score: this.score,
-                user: this.userId
+                user: userId
             }, { withCredentials: true })
             if (response.status === 200) {
-                this.$router.push('/review/'+response.data.id)
+                this.$router.push('/review/' + response.data.id)
             }
         },
         checkFields() {
@@ -81,10 +103,10 @@ export default {
 <template>
     <main class="main">
         <h1 class="main__title">CREAR RESEÑA</h1>
-        <!-- <div class="main__background">
-                                        <img className="main__background__img" src="/src/assets/img/background.png" />
-                                        <div className="main__background__opacity" />
-                                    </div> -->
+        <div class="main__background">
+            <img className="main__background__img" src="/src/assets/img/background.jpeg" />
+            <div className="main__background__opacity" />
+        </div>
         <form class="main__form" @submit.prevent="checkFields">
             <div class="main__form__group">
                 <div class="main__form__field">
@@ -119,12 +141,13 @@ export default {
                         @input="event => videogame = event.target.value">
                         <option value="" selected>VIDEOJUEGOS</option>
                         <option value="">- - - - -</option>
-                        <option v-for="d in this.games" :value="d.id">{{ d.name }}</option>
+                        <option v-for="d in games" :value="d.id">{{ d.name }}</option>
                     </select><span class="session__field__square"
                         :class="{ session__field__square__active: errorVideogame && focusVideogame }" />
-                    <p class="session__field__error" :class="{ session__field__error__active: errorVideogame && focusVideogame }">{{
-                        errorVideogame
-                    }}</p>
+                    <p class="session__field__error"
+                        :class="{ session__field__error__active: errorVideogame && focusVideogame }">{{
+                            errorVideogame
+                        }}</p>
                 </div>
             </div>
             <div class="main__form__field">

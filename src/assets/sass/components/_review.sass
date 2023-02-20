@@ -29,6 +29,7 @@
         max-width: 1800px
 
         &__review
+            position: relative
             display: flex
             flex-direction: column
             background-color: $color_oscuro_secundario
@@ -43,8 +44,23 @@
                 height: 45%
                 object-fit: cover
                 object-position: top
-                transition: 0.5s all
-                -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))
+                -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))                
+
+            &__videogame
+                position: absolute
+                top: 15%
+                left: 0
+                right: 0
+                width: 100%
+                margin: auto      
+                display: none    
+                text-align: center
+                justify-content: center
+                font-family: $fuente_primaria
+                font-weight: bold
+                font-size: $M
+                color: $color_claro
+                opacity: 80%
 
             &__title
                 font-family: $fuente_primaria
@@ -89,4 +105,19 @@
 
             &:hover                
                 transform: scale(1.05)
+
+                .main__reviews__review__img                    
+                    opacity: 40%
                 
+                .main__reviews__review__videogame
+                    display: flex 
+        
+        @media (max-width: 1500px)
+            grid-template-columns: repeat(3,1fr)
+
+        @media (max-width: 1250px)
+            grid-template-columns: repeat(2,1fr)
+
+        @media (max-width: 900px)
+            grid-template-columns: repeat(1,1fr)
+        

@@ -3,14 +3,27 @@ import Review from '../components/Review.vue'
 </script>
 
 <script>
+/**
+ * Componente que realiza llamadas a una API de reseñas de videojuegos.
+ *
+ * @vue-prop {String} review - La reseña a buscar.
+ * @vue-prop {String} search - La cadena de búsqueda para filtrar las reseñas.
+ * @vue-data {Number} MAX_LENGHT - La longitud máxima permitida para la reseña.
+ * @vue-data {Object} results - Los resultados obtenidos de la API.
+ * @vue-data {String} path - El path base para las reseñas.
+ * @vue-data {String} API - La URL base para la API de reseñas.
+ * @vue-data {String} API_SEARCH - La URL para buscar reseñas con la cadena de búsqueda..
+ * @vue-event callAPI - Llama a la API del servidor para encontrar las reseñas de videojuegos que incluyan la busqueda
+ */
 export default {
   props: ["review", "search"],
   data() {
     return {
       MAX_LENGHT: 85,
       results: null,
-      API: "http://127.0.0.1:3001/api/v1/reviews",
-      API_SEARCH: "http://127.0.0.1:3001/api/v1/reviews/search=" + this.search
+      path: '/review/',
+      API: "https://viju-server.onrender.com/api/v1/reviews",
+      API_SEARCH: "https://viju-server.onrender.com/api/v1/reviews/search=" + this.search
     }
   },
   mounted() {
@@ -18,7 +31,7 @@ export default {
   },
   watch: {
     search: function () {
-      this.API_SEARCH = "http://127.0.0.1:3001/api/v1/reviews/search=" + this.search
+      this.API_SEARCH = "https://viju-server.onrender.com/api/v1/reviews/search=" + this.search
       this.callAPI()
     }
   },
@@ -36,10 +49,10 @@ export default {
 <template>
   <main class="main">
     <h1 class="main__title">NUEVAS RESEÑAS</h1>
-    <section class="main__reviews" v-if="this.results !== null && this.results.length !== 0">
-      <Review v-for="res in this.results" :id='res.id' :title='res.title' :image='res.image'
+    <section class="main__reviews" v-if="results !== null && results.length !== 0">
+      <Review v-for="res in results" :id='res.id' :title='res.title' :image='res.image' :videogame="res.name"
         :description='res.message.substring(0, MAX_LENGHT) + " ..."' :user='res.username' :score='res.score'
-        @click="() => this.$emit('selectReview', res.id)" />
+        @click="() => $emit('selectReview', res.id)" :path="path"/>
     </section>
     <section v-else class="main__empty">
       <img src="/src/assets/img/broken.png" alt="CD ROTO" class="main__empty__image">

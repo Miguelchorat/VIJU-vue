@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import NewView from '../views/NewView.vue'
 import ProfileView from '../views/ProfileView.vue'
 import ProfileReviewView from '../views/ProfileReviewView.vue'
 import ReviewView from '../views/ReviewView.vue'
 import CreateReviewView from '../views/CreateReviewView.vue'
+import UpdateReviewView from '../views/UpdateReviewView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,11 +15,6 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/nuevos',
-      name: 'new',
-      component: NewView
-    },
-    {
       path: '/perfil',
       name: 'profile',
       component: ProfileView
@@ -28,6 +23,21 @@ const router = createRouter({
       path: '/perfil/reviews',
       name: 'profile-reviews',
       component: ProfileReviewView
+    },
+    {
+      path: '/perfil/review/:id',
+      name: 'profile-review',
+      component: ReviewView
+    },
+    {
+      path: '/perfil/actualizar-review/:id',
+      name: 'update-profile-review',
+      component: UpdateReviewView
+    },
+    {
+      path: '/actualizar-review/:id',
+      name: 'update-review',
+      component: UpdateReviewView
     },
     {
       path: '/crear-review',

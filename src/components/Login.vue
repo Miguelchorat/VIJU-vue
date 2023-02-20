@@ -1,6 +1,29 @@
 <script>
-import axios from 'axios'
 
+import axios from 'axios'
+/**
+ * Componente que representa el formulario de inicio de sesión de un usuario.
+ * @vue-prop {Boolean} menu - Indica si el menú de la aplicación está activo o no.
+ * @vue-prop {Boolean} account - Indica si la cuenta del usuario está activa o no.
+ * @vue-prop {Boolean} session - Indica si la sesión del usuario está activa o no.
+ * @vue-prop {Number} userId - ID del usuario que está iniciando sesión.
+ * @vue-data {String} email - Correo electrónico del usuario para iniciar sesión.
+ * @vue-data {String} password - Contraseña del usuario para iniciar sesión.
+ * @vue-data {String} errorEmail - Mensaje de error para el correo electrónico.
+ * @vue-data {String} errorPassword - Mensaje de error para la contraseña.
+ * @vue-data {String} errorSession - Mensaje de error para la sesión del usuario.
+ * @vue-data {Boolean} visibility - Indica si la contraseña es visible o no.
+ * @vue-data {Boolean} focusEmail - Indica si el campo de correo electrónico está enfocado o no.
+ * @vue-data {Boolean} focusPassword - Indica si el campo de contraseña está enfocado o no.
+ * @vue-data {String} API_LOGIN - URL de la API para iniciar sesión.
+ * @vue-data {RegExp} emailValidation - Expresión regular para validar correos electrónicos.
+ * @vue-data {RegExp} passwordValidation - Expresión regular para validar contraseñas.
+ * @vue-event {Function} changeSession - Evento que se emite cuando la sesión del usuario cambia.
+ * @vue-event {Function} changeUserId - Evento que se emite cuando el ID del usuario cambia.
+ * @vue-event {Function} checkUser - Evento que se emite para verificar al usuario.
+ * @vue-event {Function} listenAccount - Evento que se emite para escuchar la cuenta del usuario.
+ * @vue-event {Function} listenMenu - Evento que se emite para escuchar el menú de la aplicación.
+ */
 export default {
     props: ['menu', 'account', 'session', 'userId'],
 
@@ -11,11 +34,10 @@ export default {
             errorEmail: '',
             errorPassword: '',
             errorSession: '',
-            remember: false,
             visibility: false,
             focusEmail: false,
             focusPassword: false,
-            API_LOGIN: "http://127.0.0.1:3001/api/v1/auth/users/",
+            API_LOGIN: "https://viju-server.onrender.com/api/v1/auth/users/",
             emailValidation: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
             passwordValidation: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,32}$/
         }
@@ -38,12 +60,11 @@ export default {
                 password: hash
             }, { withCredentials: true })
             .then(response => {
-                if (this.remember){
-                    this.$emit('changeSession', true)   
-                    this.$emit('changeUserId', response.data) 
-                }                                      
+                this.$emit('changeSession', true)  
+                this.$emit('changeUserId', response.data)                     
+                this.$emit('checkUser')                                
                 this.$emit('listenAccount')
-                this.$emit('listenMenu', 0)
+                this.$emit('listenMenu', 0)                
             })
             .catch(error => {
                 if (error.response.status === 401) {
@@ -78,7 +99,7 @@ export default {
 </script>
 <template>
     <form class="session" @submit.prevent="checkFields">
-        <a class="session__close material-symbols-outlined" href="#" @click="() => this.$emit('listenMenu')">close</a>
+        <a class="session__close material-symbols-outlined" href="#" @click="() => $emit('listenMenu')">close</a>
         <h2 class="session__title">INICIAR SESIÓN</h2>
         <div class="session__field">
             <input class="session__field__input" :class="{ session__field__input__warning: errorEmail || errorSession }" type="email"
@@ -95,11 +116,11 @@ export default {
         </div>
         <div class="session__field">
             <input class="session__field__input" :class="{ session__field__input__warning: errorPassword }"
-                :value="password" @input="event => password = event.target.value" placeholder="Clave"
+                :value="password" @input="event => password = event.target.value" placeholder="Contraseña"
                 :type="visibility ? 'text' : 'password'" aria-label="password" maxlength="20" 
                 @focus="focusPassword = true" @blur="focusPassword = false"/>
             <span class="session__field__icon material-symbols-outlined" @click="listenVisibility">{{
-                this.visibility ?
+                visibility ?
                 'visibility_off' : 'visibility'
             }}</span>
             <span class="session__field__square"
@@ -107,14 +128,10 @@ export default {
             <p class="session__field__error" :class="{ session__field__error__active: errorPassword && focusPassword }">
                 {{ errorPassword }}</p>
         </div>
-        <div class='session__remember'>
-            <input type="checkbox" :checked="remember" @click="listenRemember" class="session__remember__checkbox" />
-            <label class="session__remember__label">Recordarme</label>
-        </div>
         <input class="session__button" type="submit" value="INICIAR SESIÓN">
         <div class="session__signin">
             <label class="session__signin__label">¿No tienes cuenta?</label>
-            <a href="#" class="session__signin__link" @click="() => this.$emit('listenMenu', 2)">Create una</a>
+            <a href="#" class="session__signin__link" @click="() => $emit('listenMenu', 2)">Create una</a>
         </div>
     </form>
 </template>
