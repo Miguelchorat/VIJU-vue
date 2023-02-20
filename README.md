@@ -1,29 +1,23 @@
 # VIJU
 
-This template should help get you started developing with Vue 3 in Vite.
+Una aplicación donde podrás tener en un solo lugar todas las reseñas de videojuegos que hayas jugado. También podrás observar las distintas reseñas que realizaron otros usuarios en la aplicación.
 
-## Recommended IDE Setup
+## Despliegue
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+[VIJU](https://miguelchorat.github.io/VIJU/)
 
-## Customize configuration
+## Lado Servidor
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+[VIJU-SERVER](https://github.com/Miguelchorat/VIJU-server)
 
-## Project Setup
+## Instalación
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Lanzar el proyecto en local
 
 ```sh
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
 ```
